@@ -1,0 +1,23 @@
+.env
+output/*
+!output/.gitkeep
+databases/migrations/*
+!databases/migrations/20211031060234_my-fave-tweets-sample.migration
+__pycache__
+# IDE and editor specific files #
+/nbproject
+.idea
+Session.vim
+*.swp
+*~
+.vs
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db

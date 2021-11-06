@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    tty: true
+    volumes:
+      - .:/code:cached
+
+  db:
+    image: mysql:8.0
+    ports:
+      - '3306:3306'
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/0.sql
+    tty: true
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWD}
+      - TZ=${TZ}
+    command: --innodb-use-native-aio=0 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+volumes:
+  db-store:
