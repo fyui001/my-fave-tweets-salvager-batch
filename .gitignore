@@ -1,9 +1,8 @@
 .env
 output/*
 !output/.gitkeep
-databases/migrations/*
-!databases/migrations/20211031060234_my-fave-tweets-sample.migration
 __pycache__
+
 # IDE and editor specific files #
 /nbproject
 .idea

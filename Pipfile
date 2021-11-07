@@ -10,8 +10,6 @@ help = "python main.py --help"
 twarc = "*"
 mysql-connector = "*"
 python-dotenv = "*"
-simple-db-migrate = "*"
-mysqlclient = "*"
 
 [dev-packages]
 

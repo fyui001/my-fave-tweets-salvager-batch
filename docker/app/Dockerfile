@@ -4,6 +4,6 @@ WORKDIR /code
 
 COPY ./docker/app/startup.sh /root
 
-RUN pip install --upgrade pip && pip install pipenv && chmod +x /root/startup.sh #&& pipenv install --system
+RUN pip install --upgrade pip && pip install pipenv && chmod +x /root/startup.sh
 
 CMD ["/root/startup.sh"]
