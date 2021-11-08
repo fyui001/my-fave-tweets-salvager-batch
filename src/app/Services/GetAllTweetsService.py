@@ -26,7 +26,7 @@ class GetAllTweetsService:
 
         for page in tw_client.search_all(query=query):
             for tweet in ensure_flattened(page):
-                self.__result[TweetId(tweet.get('id'))] = tweet.get('created_at')
+                self.__result[TweetId(tweet.get('id')).get_value()] = tweet.get('created_at')
 
         self.__result = sorted(self.__result.items(), key=lambda x: x[1])
 
