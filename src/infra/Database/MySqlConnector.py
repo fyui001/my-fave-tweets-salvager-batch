@@ -16,5 +16,5 @@ class MySqlConnector:
             print(e)
             raise
 
-    def __get_connector(self) -> connector:
+    def get_connector(self) -> connector:
         return self.db

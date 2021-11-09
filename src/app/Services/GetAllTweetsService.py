@@ -10,7 +10,7 @@ from src.domain.Twitter.TweetList import TweetList
 class GetAllTweetsService:
     def __init__(self, account_name: AccountName) -> None:
         self.__account_name = account_name
-        self.__result = {}
+        self.__result: dict = {}
         self.__import_data: TweetList = TweetList([])
 
     async def __get_all_tweets(self) -> None:
@@ -26,7 +26,11 @@ class GetAllTweetsService:
 
         for page in tw_client.search_all(query=query):
             for tweet in ensure_flattened(page):
-                self.__result[TweetId(tweet.get('id')).get_value()] = tweet.get('created_at')
+                self.__result.update(
+                    {
+                        TweetId(tweet.get('id')).get_value(): tweet.get('created_at')
+                    }
+                )
 
         self.__result = sorted(self.__result.items(), key=lambda x: x[1])
 
@@ -42,6 +46,5 @@ class GetAllTweetsService:
             ])
 
     async def get_all_tweets(self) -> TweetList:
-        await self.__get_all_tweets()
         await self.__data_processor()
         return self.__import_data

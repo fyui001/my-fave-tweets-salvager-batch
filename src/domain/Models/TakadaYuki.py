@@ -13,4 +13,4 @@ class TakadaYuki:
         ]
 
     def save_all_tweets(self, tweets: TweetList):
-        Query().bulk_insert(self.__table, self.__columns, tweets.get_value())
+        Query().bulk_insert(self.__table, self.__columns, tweets.get())

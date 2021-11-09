@@ -4,7 +4,7 @@ from src.infra.Database.MySqlConnector import MySqlConnector
 class Query(MySqlConnector):
     def __init__(self) -> None:
         MySqlConnector.__init__(self)
-        self.cnx = self.__get_connector()
+        self.cnx = self.get_connector()
         self.cur = self.cnx.cursor()
 
     def __get_value(self, values: list) -> str:

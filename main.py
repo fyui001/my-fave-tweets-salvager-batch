@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from src.app.Services.TakadaYukiServicee import TakadaYukiService
 from src.app.Services.MatsuiErikoService import MatsuiErikoService
 from src.domain.Twitter.AccountName import AccountName
-
+from src.infra.Database.MySqlConnector import MySqlConnector
 
 async def main():
     # dotenvの読み込み
@@ -45,10 +45,10 @@ async def main():
 
     if account_name.equal('sunflower930316'):
         await TakadaYukiService(account_name).save_all_tweets(save_format)
-        print('高田憂希しか好きじゃない')
+        logger.info('高田憂希しか好きじゃない')
     elif account_name.equal('ErikoMatsui'):
         await MatsuiErikoService(account_name).save_all_tweets(save_format)
-        print('松井恵理子鹿好きじゃない')
+        logger.info('松井恵理子鹿好きじゃない')
 
     logger.info('取得完了しました')
 

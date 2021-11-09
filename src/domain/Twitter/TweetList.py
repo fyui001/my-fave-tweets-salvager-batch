@@ -5,6 +5,6 @@ class TweetList(ListValue):
     def __init__(self, value: list) -> None:
         ListValue.__init__(self, value)
 
-    def get_value(self) -> list:
+    def get(self) -> list:
         return self.get_value()
 
