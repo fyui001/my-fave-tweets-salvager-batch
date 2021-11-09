@@ -4,7 +4,7 @@ from src.domain.Twitter.Account import Account
 
 
 class TakadaYuki:
-    def __init__(self):
+    def __init__(self) -> None:
         self.__table = 'takada_yuki_tweets'
         self.__columns = [
             'account_name',

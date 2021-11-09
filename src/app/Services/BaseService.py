@@ -8,7 +8,7 @@ from src.domain.Twitter.AccountName import AccountName
 
 
 class BaseService:
-    def __init__(self):
+    def __init__(self) -> None:
         self.file_path = sys.path[0] + '/output/{time}-{user_name}/'
         self.file_name = '{user_name}.csv'
         self.JST = timezone(timedelta(hours=+9), 'JST')

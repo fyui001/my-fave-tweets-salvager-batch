@@ -26,9 +26,11 @@ class Query(MySqlConnector):
         try:
             self.cur.execute(sql)
             self.cnx.commit()
+            self.cnx.close()
             return True
         except:
             self.cnx.rollback()
+            self.cnx.close()
             return False
 
     def bulk_insert(self, table: str, columns: list, values: list) -> bool:
@@ -45,7 +47,9 @@ class Query(MySqlConnector):
         try:
             self.cur.execute(sql)
             self.cnx.commit()
+            self.cnx.close()
             return True
         except:
             self.cnx.rollback()
+            self.cnx.close()
             return False

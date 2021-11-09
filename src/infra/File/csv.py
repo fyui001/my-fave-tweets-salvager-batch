@@ -10,6 +10,6 @@ class Csv:
     def create(self, data: TweetList) -> None:
         with open(self.file_path + self.file_name, 'w', newline='') as f:
             writer = csv.writer(f, lineterminator='\n')
-            for row in data.get_value():
+            for row in data.get():
                 writer.writerow(row)
             f.close()
