@@ -7,7 +7,7 @@ class Tweet:
     def __init__(self, account: Account, tweet_id: TweetId) -> None:
         self.__tweet_id: TweetId = tweet_id
         self.__account: Account = account
-        self.tweet_url = TweetUrl().get_tweet_url(
+        self.tweet_url = TweetUrl(
             self.__account.get_account_name(),
             self.__tweet_id,
         )

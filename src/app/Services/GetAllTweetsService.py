@@ -40,9 +40,9 @@ class GetAllTweetsService:
 
         for key in self.__result:
             self.__import_data.append([
-                self.__account_name,
+                self.__account_name.get_value(),
                 key[0],
-                TweetUrl().get_tweet_url(self.__account_name, key)
+                TweetUrl(self.__account_name, key).get_value()
             ])
 
     async def get_all_tweets(self) -> TweetList:
