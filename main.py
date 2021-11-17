@@ -5,8 +5,8 @@ import asyncio
 from dotenv import load_dotenv
 from src.app.Services.TakadaYukiServicee import TakadaYukiService
 from src.app.Services.MatsuiErikoService import MatsuiErikoService
-from src.domain.Twitter.AccountName import AccountName
-from src.infra.Database.MySqlConnector import MySqlConnector
+from src.domain.Twitter.Account.AccountName import AccountName
+
 
 async def main():
     # dotenvの読み込み
@@ -48,7 +48,7 @@ async def main():
         logger.info('高田憂希しか好きじゃない')
     elif account_name.equal('ErikoMatsui'):
         await MatsuiErikoService(account_name).save_all_tweets(save_format)
-        logger.info('松井恵理子鹿好きじゃない')
+        logger.info('松井恵理子しか好きじゃない')
 
     logger.info('取得完了しました')
 

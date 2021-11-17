@@ -4,7 +4,7 @@ import logging
 import sys
 from src.infra.File.csv import Csv
 from src.domain.Twitter.TweetList import TweetList
-from src.domain.Twitter.AccountName import AccountName
+from src.domain.Twitter.Account.AccountName import AccountName
 
 
 class BaseService:

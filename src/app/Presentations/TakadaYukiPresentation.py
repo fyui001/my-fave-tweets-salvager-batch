@@ -1,5 +1,5 @@
 from src.app.Services.TakadaYukiServicee import TakadaYukiService
-from src.domain.Twitter.AccountName import AccountName
+from src.domain.Twitter.Account.AccountName import AccountName
 
 
 class TakadaYukiPresentation():

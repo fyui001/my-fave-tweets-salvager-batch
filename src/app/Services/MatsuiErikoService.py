@@ -1,4 +1,4 @@
-from src.domain.Twitter.AccountName import AccountName
+from src.domain.Twitter.Account.AccountName import AccountName
 from src.domain.Models.MatsuiEriko import MatsuiEriko
 from src.app.Services.GetAllTweetsService import GetAllTweetsService
 from src.app.Services.BaseService import BaseService

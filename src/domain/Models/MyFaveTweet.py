@@ -1,11 +1,11 @@
 from src.infra.Database.Query import Query
-from src.domain.Twitter.TweetList import TweetList
 
 
-class TakadaYuki:
+class MyFaveTweet:
     def __init__(self) -> None:
-        self.__table = 'takada_yuki_tweets'
+        self.__table = 'my_fave_tweets'
         self.__columns = [
+            'fave_id',
             'account_name',
             'tweet_id',
             'tweet_url',
@@ -13,5 +13,5 @@ class TakadaYuki:
             'tweet_source',
         ]
 
-    def save_all_tweets(self, tweets: TweetList):
-        Query().bulk_insert(self.__table, self.__columns, tweets.get_value())
+    def save_all_tweets(self, data: list):
+        Query().bulk_insert(self.__table, self.__columns, data)
