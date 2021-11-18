@@ -8,7 +8,7 @@ class MediaUrl:
             'tweet_id',
             'media_key',
             'url',
-            'type',
+            'media_type',
         ]
 
     def save_media_urls(self, data) -> None:

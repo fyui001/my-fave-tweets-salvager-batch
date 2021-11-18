@@ -32,7 +32,7 @@ class TakadaYukiService(BaseService):
         media_import_data: list = self.__media_list.get_value()
         if save_format == 'db':
             MyFaveTweet().save_all_tweets(tweet_import_data)
-            #MediaUrl().save_media_urls(media_import_data)
+            MediaUrl().save_media_urls(media_import_data)
         elif save_format == 'csv':
             self.gen_csv(self.__tweet_list, self.__account_name)
 

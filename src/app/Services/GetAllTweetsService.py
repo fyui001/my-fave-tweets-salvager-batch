@@ -28,7 +28,10 @@ class GetAllTweetsService:
     async def __media_builder(self, tweet_id: TweetId, media_key: MediaKey, media_url: MediaUrl, media_type: MediaType) -> None:
         self.__media_lists.append(
             [
-                Media(tweet_id, media_key, media_url, media_type)
+                tweet_id.get_value(),
+                media_key.get_value(),
+                media_url.get_value(),
+                media_type.get_value(),
             ]
         )
 
@@ -69,11 +72,13 @@ class GetAllTweetsService:
                     attachments = [tweet.get('attachments')]
                     for key in attachments:
                         # gifは取れないしいらないのでbreakさせる
-                        if 'media'not in key.items():
+                        if 'media' not in key:
                             break
                         for media_key in key['media_keys']:
                             media: dict = await self.__media__dict_builder(key['media'])
-                            await self.__media_builder(self.__tweet_id, media_key, media['url'], media['type'])
+                            if not media:
+                                break
+                            await self.__media_builder(self.__tweet_id, MediaKey(media_key), MediaUrl(media['url']), MediaType(media['type']))
                 self.__tweet_ids.update(
                     {
                         self.__tweet_id.get_value(): tweet.get('created_at')
@@ -104,9 +109,9 @@ class GetAllTweetsService:
             self.__tweet_list.append([
                 self.__account_name.get_value(),
                 tweet_id.get_value(),
+                TweetUrl(self.__account_name, tweet_id).get_value(),
                 tweet_text,
                 self.__tweet_source[tweet_id.get_value()],
-                TweetUrl(self.__account_name, tweet_id).get_value()
             ])
         self.__import_data['tweet_list'] = self.__tweet_list
         self.__import_data['media_list'] = self.__media_lists

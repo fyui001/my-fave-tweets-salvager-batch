@@ -1,6 +1,6 @@
 class ListValue:
     def __init__(self, value: list):
-        self.__value = value
+        self.__value: list = value
 
     def get_value(self) -> list:
         return self.__value
